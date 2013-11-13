@@ -1,0 +1,16 @@
+1:Amanece:Nach:0.99:4:00
+2:Mil vidas:Nach:0.99:4:00
+3:El juego del rap (con ZPU):Nach:0.99:4:00
+4:Esclavos del destino:Nach:0.99:4:00
+5:Ángel:Nach:0.99:4:00
+6:Efectos vocales:Nach:0.99:4:00
+7:Nada ni nadie:Nach:0.99:4:00
+8:Sr. Libro y Sr. Calle (con All day green):Nach:0.99:4:00
+9:Héroes (con Abram):Nach:0.99:4:00
+10:El amor viene y va:Nach:0.99:4:00
+11:Infama:Nach:0.99:4:00
+12:Quiz Show:Nach:0.99:4:00
+13:Vive (mientras puedas):Nach:0.99:4:00
+14:Rapkour (con Cres):Nach:0.99:4:00
+15:Los años luz (con Diana Feria):Nach:0.99:4:00
+16:Anochece + Manifiesto (Hidden track):Nach:0.99:4:00
