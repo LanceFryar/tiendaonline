@@ -35,7 +35,7 @@ public class FileLoader implements ILoader {
                 albumProperties = line.split(":");
                 if (albumProperties[0] == null ? id == null : albumProperties[0].equals(id)) {
                     Album album = new Album(albumProperties[1], albumProperties[2],
-                            albumProperties[3], 0);
+                            albumProperties[3], 0, albumProperties[0]);
                     for (Song song : loadSongList(id)) {
                         album.addSong(song);
                     }
@@ -64,14 +64,16 @@ public class FileLoader implements ILoader {
 
             String line;
             String[] songProperties;
+            int track = 1;
             while ((line = bufferedReader.readLine()) != null) {
                 songProperties = line.split(":");
                 songList.add(new Song(songProperties[1], songProperties[2],
                         Float.valueOf(songProperties[3]),
                         Integer.valueOf(songProperties[0]),
                         Integer.valueOf(songProperties[4]),
-                        Integer.valueOf(songProperties[5])));
-
+                        Integer.valueOf(songProperties[5]),
+                        id+"."+track));
+                track++;
             }
         } catch (FileNotFoundException exception) {
             //TODO mostrar fallo en bonito

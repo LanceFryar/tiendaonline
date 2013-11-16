@@ -17,8 +17,8 @@ public class Song extends Product implements ISong, Serializable{
     private int minutes;
     private int seconds;
     public Song(String title, String author, float price, int position, 
-            int minutes, int seconds) {
-        super(title, author, price);
+            int minutes, int seconds, String id) {
+        super(title, author, price, id);
         this.position = position;
         this.minutes = minutes;
         this.seconds = seconds;

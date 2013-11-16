@@ -4,6 +4,7 @@
  */
 package com.tiendaonline.libraries;
 
+import java.util.ArrayList;
 import javax.ejb.Remote;
 
 /**
@@ -20,6 +21,8 @@ public interface ICart {
 
     public void empty();
 
-    public void removeProduct(IProduct product);
+    public void removeProduct(String id);
+    
+    public ArrayList<IProduct> getCart();
     
 }

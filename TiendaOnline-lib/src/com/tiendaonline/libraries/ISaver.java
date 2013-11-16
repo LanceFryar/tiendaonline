@@ -11,5 +11,5 @@ package com.tiendaonline.libraries;
  * @author YO
  */
 public interface ISaver {
-    public void saveCart();
+    public void saveCart(ICart cart);
 }

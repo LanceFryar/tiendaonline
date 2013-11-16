@@ -23,7 +23,7 @@ public class RemoveProductCommand extends FrontCommand{
     
     @Override
     protected void process() {
-        cart.removeProduct(catalog.getProduct(request.getParameter("id")));
+        cart.removeProduct(request.getParameter("id"));
         request.setAttribute("cart", cart);
     }
     

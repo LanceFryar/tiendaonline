@@ -16,14 +16,13 @@ public class Product implements IProduct, Serializable{
     private String title;
     private String author;
     protected float price;
+    protected String id;
 
-    public Product() {
-    }
-
-    public Product(String title, String author, float price) {
+    public Product(String title, String author, float price, String id) {
         this.title = title;
         this.author = author;
         this.price = price;
+        this.id = id;
     }
 
     @Override
@@ -41,6 +40,8 @@ public class Product implements IProduct, Serializable{
         return author;
     }
 
-    
-    
+    @Override
+    public String getId() {
+        return id;
+    }    
 }

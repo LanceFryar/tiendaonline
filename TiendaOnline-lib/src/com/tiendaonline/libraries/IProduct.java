@@ -13,5 +13,5 @@ public interface IProduct extends Serializable{
     public String getAuthor();
     public float getPrice();
     public String getTitle();
-    
+    public String getId();
 }

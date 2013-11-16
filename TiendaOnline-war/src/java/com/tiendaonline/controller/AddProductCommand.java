@@ -6,6 +6,7 @@
 
 package com.tiendaonline.controller;
 
+import com.tiendaonline.libraries.IAlbum;
 import com.tiendaonline.libraries.ICart;
 import com.tiendaonline.libraries.ICatalog;
 import javax.ejb.EJB;
@@ -23,7 +24,14 @@ public class AddProductCommand extends FrontCommand{
     
     @Override
     protected void process() {
-        cart.addProduct(catalog.getProduct(request.getParameter("id")));
+        String id = request.getParameter("id");
+        if (id.split(":").length == 1) {
+            cart.addProduct(catalog.getProduct(id));
+        }
+        else {
+            IAlbum album = (IAlbum) catalog.getProduct(id.split(":")[0]);
+            cart.addProduct(album.getSong(Integer.valueOf(id.split(":")[1])));
+        }
         if (request.getParameter("from").equals("0")) {
             request.setAttribute("catalog", catalog);
             forward("/main.jsp");

@@ -41,7 +41,7 @@
                 <b>Artista: </b><%= album.getAuthor() %> <br />
                 <% DecimalFormat formateador = new DecimalFormat("########.##"); %>
                 <b>Precio: </b><%= formateador.format(album.getPrice()) %>€<br />
-                <a href="">Comprar</a><br />
+                <a href="/Tienda-Online/?command=AddProduct&id=<%= id+1 %>&from=0">Comprar</a><br />
                 <br />
             </div>
             <% id++;

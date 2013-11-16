@@ -16,11 +16,8 @@ public class Album extends Product implements IAlbum, Serializable{
     private String cover;
     private SongList songList;
 
-    public Album() {
-    }
-    
-    public Album(String cover, String title, String author, float price) {
-        super(title, author, price);
+    public Album(String cover, String title, String author, float price, String id) {
+        super(title, author, price, id);
         this.cover = cover;
         songList = new SongList();
     }

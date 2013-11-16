@@ -8,9 +8,9 @@ package com.tiendaonline.beans;
 import javax.ejb.Stateful;
 import com.tiendaonline.libraries.ICart;
 import com.tiendaonline.libraries.IProduct;
-import com.tiendaonline.model.Product;
+import com.tiendaonline.libraries.ISaver;
+import com.tiendaonline.loaders.FileSaver;
 import java.util.ArrayList;
-import java.util.Collection;
 
 /**
  *
@@ -23,7 +23,8 @@ public class Cart implements ICart{
 
     @Override
     public void saveProducts() {
-        
+        ISaver saver = new FileSaver();
+        saver.saveCart(this);
     }
 
     @Override
@@ -37,8 +38,17 @@ public class Cart implements ICart{
     }
 
     @Override
-    public void removeProduct(IProduct product) {
-        cart.remove(product);
+    public void removeProduct(String id) {
+        for (IProduct product : cart) {
+            if (product.getId().equals(id)) {
+                cart.remove(product);
+            }
+        }
+    }
+
+    @Override
+    public ArrayList<IProduct> getCart() {
+        return cart;
     }
     
 }
