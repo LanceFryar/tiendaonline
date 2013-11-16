@@ -4,7 +4,7 @@
  */
 package com.tiendaonline.controller;
 
-import com.tiendaonline.libraries.IAlbum;
+import com.tiendaonline.libraries.ICatalog;
 import javax.ejb.EJB;
 
 /**
@@ -13,13 +13,11 @@ import javax.ejb.EJB;
  */
 public class AlbumController extends FrontCommand{
     @EJB
-    IAlbum album;
+    ICatalog catalog;
     
     @Override
     protected void process() {
-//        ILoader loader = new FileLoader(context);
-//        Album album = loader.loadAlbum(Integer.valueOf(request.getParameter("id")));
-        request.setAttribute("album", album);
+        request.setAttribute("album", catalog.getProduct(request.getParameter("id")));
         forward("/album.jsp");
     }
     

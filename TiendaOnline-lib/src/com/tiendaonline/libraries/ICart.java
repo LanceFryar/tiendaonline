@@ -13,5 +13,13 @@ import javax.ejb.Remote;
 
 @Remote
 public interface ICart {
+
+    public void saveProducts();
+
+    public void addProduct(IProduct product);
+
+    public void empty();
+
+    public void removeProduct(IProduct product);
     
 }

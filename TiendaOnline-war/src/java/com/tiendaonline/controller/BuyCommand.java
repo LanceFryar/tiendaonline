@@ -6,10 +6,23 @@
 
 package com.tiendaonline.controller;
 
+import com.tiendaonline.libraries.ICart;
+import javax.ejb.EJB;
+
 /**
  *
  * @author YO
  */
-public class BuyCommand {
+public class BuyCommand extends FrontCommand{
+    @EJB
+    ICart cart;
+    
+    @Override
+    protected void process() {
+        cart.saveProducts();
+        cart.empty();
+        request.setAttribute("cart", cart);
+        forward("/cart.jsp");
+    }
     
 }

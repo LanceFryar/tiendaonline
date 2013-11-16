@@ -4,6 +4,7 @@
  */
 package com.tiendaonline.loaders;
 
+import com.tiendaonline.libraries.ILoader;
 import com.tiendaonline.model.Album;
 import com.tiendaonline.model.Song;
 import com.tiendaonline.model.SongList;

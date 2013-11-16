@@ -4,10 +4,11 @@
  */
 package com.tiendaonline.beans;
 
+import com.tiendaonline.libraries.IAlbum;
 import com.tiendaonline.libraries.ICatalog;
 import com.tiendaonline.libraries.IProduct;
 import com.tiendaonline.loaders.FileLoader;
-import com.tiendaonline.loaders.ILoader;
+import com.tiendaonline.libraries.ILoader;
 import com.tiendaonline.model.Album;
 import java.util.ArrayList;
 import javax.ejb.Remote;
@@ -21,7 +22,7 @@ import javax.ejb.Stateless;
 @Stateless
 @Remote(ICatalog.class)
 public class Catalog implements ICatalog{
-    private ArrayList<Album> catalog;
+    private ArrayList<IAlbum> catalog;
 
     @Override
     public IProduct getProduct(String id) {
