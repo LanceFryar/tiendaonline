@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package com.tiendaonline.libraries;
+import java.io.Serializable;
 import javax.ejb.Remote;
 /**
  *
@@ -10,7 +11,7 @@ import javax.ejb.Remote;
  */
 
 @Remote
-public interface IProduct {
+public interface IProduct extends Serializable{
     
     public String getAuthor();
     public float getPrice();
