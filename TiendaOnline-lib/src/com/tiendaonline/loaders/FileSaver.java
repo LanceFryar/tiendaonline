@@ -6,7 +6,7 @@
 
 package com.tiendaonline.loaders;
 
-import com.tiendaonline.libraries.ICart;
+import com.tiendaonline.beans.ICart;
 import com.tiendaonline.libraries.IProduct;
 import com.tiendaonline.libraries.ISaver;
 import java.io.BufferedWriter;

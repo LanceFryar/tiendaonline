@@ -5,7 +5,6 @@
 package com.tiendaonline.beans;
 
 import com.tiendaonline.libraries.IAlbum;
-import com.tiendaonline.libraries.ICatalog;
 import com.tiendaonline.libraries.IProduct;
 import com.tiendaonline.loaders.FileLoader;
 import com.tiendaonline.libraries.ILoader;

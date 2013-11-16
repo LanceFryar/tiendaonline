@@ -6,14 +6,14 @@
 
 package com.tiendaonline.controller;
 
-import com.tiendaonline.libraries.ICart;
+import com.tiendaonline.beans.ICart;
 import javax.ejb.EJB;
 
 /**
  *
  * @author YO
  */
-public class BuyCommand extends FrontCommand{
+public class BuyController extends FrontCommand{
     @EJB
     ICart cart;
     

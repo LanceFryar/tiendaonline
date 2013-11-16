@@ -6,7 +6,6 @@
 package com.tiendaonline.beans;
 
 import javax.ejb.Stateful;
-import com.tiendaonline.libraries.ICart;
 import com.tiendaonline.libraries.IProduct;
 import com.tiendaonline.libraries.ISaver;
 import com.tiendaonline.loaders.FileSaver;
@@ -50,5 +49,5 @@ public class Cart implements ICart{
     public ArrayList<IProduct> getCart() {
         return cart;
     }
-    
+
 }

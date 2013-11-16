@@ -6,6 +6,8 @@
 
 package com.tiendaonline.libraries;
 
+import com.tiendaonline.beans.ICart;
+
 /**
  *
  * @author YO

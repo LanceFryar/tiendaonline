@@ -6,8 +6,8 @@
 
 package com.tiendaonline.controller;
 
-import com.tiendaonline.libraries.ICart;
-import com.tiendaonline.libraries.ICatalog;
+import com.tiendaonline.beans.ICart;
+import com.tiendaonline.beans.ICatalog;
 import javax.ejb.EJB;
 
 /**
