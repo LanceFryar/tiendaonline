@@ -5,7 +5,6 @@
 package com.tiendaonline.loaders;
 
 import com.tiendaonline.model.Album;
-import com.tiendaonline.model.Catalog;
 import com.tiendaonline.model.Song;
 import com.tiendaonline.model.SongList;
 import java.io.BufferedReader;
@@ -13,19 +12,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 
 /**
  *
  * @author Rayco
  */
 public class FileLoader implements ILoader {
-
-    Catalog catalog = lookupCatalogBean();
 
     @Override
     public Album loadAlbum(String id) {
@@ -87,15 +79,5 @@ public class FileLoader implements ILoader {
         }
 
         return songList;
-    }
-
-    private Catalog lookupCatalogBean() {
-        try {
-            Context c = new InitialContext();
-            return (Catalog) c.lookup("java:global/Tienda_Online_-_Capa_de_Negocio/Catalog!com.tiendaonline.model.Catalog");
-        } catch (NamingException ne) {
-            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
-            throw new RuntimeException(ne);
-        }
     }
 }

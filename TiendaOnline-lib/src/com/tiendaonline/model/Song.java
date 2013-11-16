@@ -11,6 +11,7 @@ import java.io.Serializable;
  *
  * @author Rayco
  */
+
 public class Song extends Product implements ISong, Serializable{
     private int position;
     private int minutes;
@@ -23,14 +24,17 @@ public class Song extends Product implements ISong, Serializable{
         this.seconds = seconds;
     }
 
+    @Override
     public int getPosition() {
         return position;
     }
 
+    @Override
     public int getMinutes() {
         return minutes;
     }
 
+    @Override
     public int getSeconds() {
         return seconds;
     }

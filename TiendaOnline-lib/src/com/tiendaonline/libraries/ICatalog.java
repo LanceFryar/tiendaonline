@@ -4,15 +4,18 @@
  */
 package com.tiendaonline.libraries;
 
-import java.io.Serializable;
 import javax.ejb.Remote;
 
 /**
  *
  * @author josue
  */
+
 @Remote
-public interface ICatalog extends Serializable {
+public interface ICatalog {
+    
+    
+    
     public IProduct getProduct(String id);
     
 }

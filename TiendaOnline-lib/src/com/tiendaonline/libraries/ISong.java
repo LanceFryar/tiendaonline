@@ -4,14 +4,11 @@
  */
 package com.tiendaonline.libraries;
 
-import javax.ejb.Remote;
-
 /**
  *
  * @author josue
  */
 
-@Remote
 public interface ISong extends IProduct{
     
     public int getPosition();

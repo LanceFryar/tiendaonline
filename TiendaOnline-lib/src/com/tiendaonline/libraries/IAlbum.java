@@ -4,13 +4,10 @@
  */
 package com.tiendaonline.libraries;
 
-import javax.ejb.Remote;
-
 /**
  *
  * @author josue
  */
-@Remote
 public interface IAlbum extends IProduct{
     
     public String getCover();
