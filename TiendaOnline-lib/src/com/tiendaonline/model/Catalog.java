@@ -8,6 +8,7 @@ import com.tiendaonline.libraries.ICatalog;
 import com.tiendaonline.libraries.IProduct;
 import com.tiendaonline.loaders.FileLoader;
 import com.tiendaonline.loaders.ILoader;
+import java.io.Serializable;
 import javax.ejb.Stateless;
 
 /**
@@ -15,7 +16,7 @@ import javax.ejb.Stateless;
  * @author Rayco
  */
 @Stateless(name="CatalogBean")
-public class Catalog implements ICatalog{
+public class Catalog implements ICatalog, Serializable{
 
     @Override
     public IProduct getProduct(String id) {

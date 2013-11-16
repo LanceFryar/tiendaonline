@@ -4,12 +4,13 @@
  */
 package com.tiendaonline.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Rayco
  */
-public class SongList extends ArrayList<Song>{
+public class SongList extends ArrayList<Song> implements Serializable{
     
 }

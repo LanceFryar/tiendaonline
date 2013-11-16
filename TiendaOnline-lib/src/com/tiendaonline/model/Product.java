@@ -5,12 +5,13 @@
 package com.tiendaonline.model;
 
 import com.tiendaonline.libraries.IProduct;
+import java.io.Serializable;
 
 /**
  *
  * @author josue
  */
-public class Product implements IProduct{
+public class Product implements IProduct, Serializable{
     
     private String title;
     private String author;

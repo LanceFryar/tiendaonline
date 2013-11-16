@@ -5,6 +5,7 @@
 package com.tiendaonline.model;
 
 import com.tiendaonline.libraries.IAlbum;
+import java.io.Serializable;
 import javax.ejb.Stateless;
 
 /**
@@ -12,7 +13,7 @@ import javax.ejb.Stateless;
  * @author Rayco
  */
 @Stateless 
-public class Album extends Product implements IAlbum{
+public class Album extends Product implements IAlbum, Serializable{
     private String cover;
     private SongList songList;
 

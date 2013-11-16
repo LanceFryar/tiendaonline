@@ -5,12 +5,13 @@
 package com.tiendaonline.model;
 
 import com.tiendaonline.libraries.ISong;
+import java.io.Serializable;
 
 /**
  *
  * @author Rayco
  */
-public class Song extends Product implements ISong{
+public class Song extends Product implements ISong, Serializable{
     private int position;
     private int minutes;
     private int seconds;
