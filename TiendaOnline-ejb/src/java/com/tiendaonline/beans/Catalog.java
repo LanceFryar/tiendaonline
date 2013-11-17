@@ -9,6 +9,7 @@ import com.tiendaonline.libraries.IProduct;
 import com.tiendaonline.loaders.FileLoader;
 import com.tiendaonline.libraries.ILoader;
 import java.util.ArrayList;
+import javax.annotation.PostConstruct;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
@@ -22,15 +23,21 @@ import javax.ejb.Stateless;
 public class Catalog implements ICatalog{
     private ArrayList<IAlbum> catalog;
 
+    public Catalog(){
+        catalog = new ArrayList();
+    }
+    
+    @PostConstruct
+    void setCatalog () {
+        ILoader fileLoader = new FileLoader();
+        int i = 1;
+        while (catalog.add(fileLoader.loadAlbum(""+i))) {
+            i++;
+        }
+    }
+    
     @Override
     public IProduct getProduct(String id) {
-        if (catalog == null) {
-            ILoader fileLoader = new FileLoader();
-            int i = 1;
-            while (catalog.add(fileLoader.loadAlbum(""+i))) {
-                i++;
-            } 
-        }
         return catalog.get(Integer.valueOf(id)-1);
     }
     

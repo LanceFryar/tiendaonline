@@ -4,15 +4,37 @@
  */
 package com.tiendaonline.controller;
 
+import com.tiendaonline.beans.ICart;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
 /**
  *
  * @author josue
  */
 public class CartController extends FrontCommand{
+    private static final String jndiCart = "java:global/TiendaOnline-ejb/Cart";
+    ICart cart;
     
-     @Override
+    @Override
     protected void process() {
-        forward("/carrito.jsp");
+        try {
+            Properties properties = new Properties();
+            properties.put("java.naming.factory.initial", "org.jnp.interfaces.NamingContextFactory");
+            properties.put("java.naming.factory.url.pkgs", "org.jboss.naming:org.jnp.interfaces");
+            properties.put("java.naming.provider.url", "jnp://localhost:1099");
+            Context context = new InitialContext(properties);
+            
+            cart = (ICart) context.lookup(jndiCart);
+            
+            forward("/carrito.jsp");
+        } catch (NamingException ex) {
+            Logger.getLogger(CartController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

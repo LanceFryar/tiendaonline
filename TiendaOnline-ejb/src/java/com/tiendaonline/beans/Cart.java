@@ -19,8 +19,12 @@ import javax.ejb.Remote;
 @Remote(ICart.class)
 @Stateful
 public class Cart implements ICart{
-    ArrayList<IProduct> cart = new ArrayList();
+    ArrayList<IProduct> cart;
 
+    public Cart() {
+        cart  = new ArrayList();
+    }
+    
     @Override
     public void saveProducts() {
         ISaver saver = new FileSaver();

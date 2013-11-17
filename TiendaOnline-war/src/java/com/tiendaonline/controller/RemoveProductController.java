@@ -8,23 +8,41 @@ package com.tiendaonline.controller;
 
 import com.tiendaonline.beans.ICart;
 import com.tiendaonline.beans.ICatalog;
-import javax.ejb.EJB;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 
 /**
  *
  * @author YO
  */
 public class RemoveProductController extends FrontCommand{
-    @EJB
-    ICart cart;
-    
-    @EJB
+    private static final String jndiCatalog = "java:global/TiendaOnline-ejb/Catalog";
     ICatalog catalog;
+    
+    private static final String jndiCart = "java:global/TiendaOnline-ejb/Cart";
+    ICart cart;
     
     @Override
     protected void process() {
-        cart.removeProduct(request.getParameter("id"));
-        request.setAttribute("cart", cart);
+        try {
+            Properties properties = new Properties();
+            properties.put("java.naming.factory.initial", "org.jnp.interfaces.NamingContextFactory");
+            properties.put("java.naming.factory.url.pkgs", "org.jboss.naming:org.jnp.interfaces");
+            properties.put("java.naming.provider.url", "jnp://localhost:1099");
+            Context context = new InitialContext(properties);
+            
+            catalog = (ICatalog) context.lookup(jndiCatalog);
+            cart = (ICart) context.lookup(jndiCart);
+            
+            cart.removeProduct(request.getParameter("id"));
+            request.setAttribute("cart", cart);
+        } catch (NamingException ex) {
+            Logger.getLogger(RemoveProductController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
