@@ -4,7 +4,7 @@
  */
 package com.tiendaonline.controller;
 
-import com.tiendaonline.beans.ICatalog;
+import com.tiendaonline.interfacebeans.ICatalog;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,12 +26,14 @@ public class MainController extends FrontCommand {
     protected void process() {
         try {
             Properties properties = new Properties();
-            properties.put("java.naming.factory.initial", "org.jnp.interfaces.NamingContextFactory");
-            properties.put("java.naming.factory.url.pkgs", "org.jboss.naming:org.jnp.interfaces");
-            properties.put("java.naming.provider.url", "jnp://localhost:1099");
-            Context initialContext = new InitialContext(properties);
+            //properties.put("java.naming.factory.initial", "org.jnp.interfaces.NamingContextFactory");
+            //properties.put("java.naming.factory.url.pkgs", "org.jboss.naming:org.jnp.interfaces");
+            //properties.put("java.naming.provider.url", "localhost:1099");
+                properties.put(Context.INITIAL_CONTEXT_FACTORY,"weblogic.jndi.WLInitialContextFactory");  
+                properties.put(Context.PROVIDER_URL,"t3://127.0.0.1:7001");  
+            Context initialContext = new InitialContext();
             
-            catalog = (ICatalog) initialContext.lookup(jndiCatalog);
+            catalog = (ICatalog) initialContext.lookup("Catalog#com.tiendaonline.beans.Catalog");
             
             response.setContentType("image/gif");
             response.setHeader("cache-control", "no-cache");

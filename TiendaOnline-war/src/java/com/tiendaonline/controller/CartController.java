@@ -4,7 +4,7 @@
  */
 package com.tiendaonline.controller;
 
-import com.tiendaonline.beans.ICart;
+import com.tiendaonline.interfacebeans.ICart;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;

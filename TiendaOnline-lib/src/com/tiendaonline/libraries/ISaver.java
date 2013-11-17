@@ -6,7 +6,7 @@
 
 package com.tiendaonline.libraries;
 
-import com.tiendaonline.beans.ICart;
+import com.tiendaonline.interfacebeans.ICart;
 
 /**
  *

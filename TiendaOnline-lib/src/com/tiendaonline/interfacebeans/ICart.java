@@ -2,16 +2,18 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.tiendaonline.beans;
+package com.tiendaonline.interfacebeans;
 
 import com.tiendaonline.libraries.IProduct;
 import java.util.ArrayList;
+import javax.ejb.Remote;
 
 /**
  *
  * @author josue
  */
 
+@Remote
 public interface ICart {
 
     public void saveProducts();

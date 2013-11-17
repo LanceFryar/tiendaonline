@@ -5,6 +5,7 @@
 
 package com.tiendaonline.beans;
 
+import com.tiendaonline.interfacebeans.ICart;
 import javax.ejb.Stateful;
 import com.tiendaonline.libraries.IProduct;
 import com.tiendaonline.libraries.ISaver;
@@ -18,7 +19,7 @@ import javax.ejb.EJB;
  */
 
 @Stateful
-@EJB(name="java:global/Cart", beanInterface=ICart.class)
+//@EJB(name="java:global/Cart", beanInterface=ICart.class)
 public class Cart implements ICart{
     ArrayList<IProduct> cart;
 
