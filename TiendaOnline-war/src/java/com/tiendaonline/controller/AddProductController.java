@@ -21,10 +21,12 @@ import javax.naming.NamingException;
  * @author YO
  */
 public class AddProductController extends FrontCommand{
-    private static final String jndiCatalog = "java:global/TiendaOnline-ejb/Catalog";
+    //private static final String jndiCatalog = "java:global/TiendaOnline-ejb/Catalog";
+    private static final String jndiCatalog = "java:global/Catalog";
     ICatalog catalog;
     
-    private static final String jndiCart = "java:global/TiendaOnline-ejb/Cart";
+    //private static final String jndiCart = "java:global/TiendaOnline-ejb/Cart";
+    private static final String jndiCart = "java:global/Cart";
     ICart cart;
     
     @Override
@@ -34,10 +36,10 @@ public class AddProductController extends FrontCommand{
             properties.put("java.naming.factory.initial", "org.jnp.interfaces.NamingContextFactory");
             properties.put("java.naming.factory.url.pkgs", "org.jboss.naming:org.jnp.interfaces");
             properties.put("java.naming.provider.url", "jnp://localhost:1099");
-            Context context = new InitialContext(properties);
+            Context initialContext = new InitialContext(properties);
             
-            catalog = (ICatalog) context.lookup(jndiCatalog);
-            cart = (ICart) context.lookup(jndiCart);
+            catalog = (ICatalog) initialContext.lookup(jndiCatalog);
+            cart = (ICart) initialContext.lookup(jndiCart);
             
             String id = request.getParameter("id");
             if (id.split(":").length == 1) {

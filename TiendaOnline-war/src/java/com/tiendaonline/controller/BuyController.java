@@ -19,7 +19,8 @@ import javax.naming.NamingException;
  * @author YO
  */
 public class BuyController extends FrontCommand{
-    private static final String jndiCart = "java:global/TiendaOnline-ejb/Cart";
+    //private static final String jndiCart = "java:global/TiendaOnline-ejb/Cart";
+    private static final String jndiCart = "java:global/Cart";
     ICart cart;
     
     @Override
@@ -29,9 +30,9 @@ public class BuyController extends FrontCommand{
             properties.put("java.naming.factory.initial", "org.jnp.interfaces.NamingContextFactory");
             properties.put("java.naming.factory.url.pkgs", "org.jboss.naming:org.jnp.interfaces");
             properties.put("java.naming.provider.url", "jnp://localhost:1099");
-            Context context = new InitialContext(properties);
+            Context initialContext = new InitialContext(properties);
             
-            cart = (ICart) context.lookup(jndiCart);
+            cart = (ICart) initialContext.lookup(jndiCart);
             
             cart.saveProducts();
             cart.empty();

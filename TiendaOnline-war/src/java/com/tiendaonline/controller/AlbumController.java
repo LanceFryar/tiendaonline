@@ -17,7 +17,8 @@ import javax.naming.NamingException;
  * @author josue
  */
 public class AlbumController extends FrontCommand{
-    private static final String jndICatalog = "java:global/TiendaOnline-ejb/Catalog";
+    //private static final String jndICatalog = "java:global/TiendaOnline-ejb/Catalog";
+    private static final String jndiCatalog = "java:global/Catalog";
     ICatalog catalog;
     
     @Override
@@ -27,9 +28,9 @@ public class AlbumController extends FrontCommand{
             properties.put("java.naming.factory.initial", "org.jnp.interfaces.NamingContextFactory");
             properties.put("java.naming.factory.url.pkgs", "org.jboss.naming:org.jnp.interfaces");
             properties.put("java.naming.provider.url", "jnp://localhost:1099");
-            Context context = new InitialContext(properties);
+            Context initialContext = new InitialContext(properties);
             
-            catalog = (ICatalog) context.lookup(jndICatalog);
+            catalog = (ICatalog) initialContext.lookup(jndiCatalog);
             request.setAttribute("album", catalog.getProduct(request.getParameter("id")));
             forward("/album.jsp");
         } catch (NamingException ex) {

@@ -20,10 +20,12 @@ import javax.naming.NamingException;
  * @author YO
  */
 public class RemoveProductController extends FrontCommand{
-    private static final String jndiCatalog = "java:global/TiendaOnline-ejb/Catalog";
+    //private static final String jndiCatalog = "java:global/TiendaOnline-ejb/Catalog"; //Direccióm del GlassFish que no funciona
+    private static final String jndiCatalog = "java:global/Catalog";
     ICatalog catalog;
     
-    private static final String jndiCart = "java:global/TiendaOnline-ejb/Cart";
+    //private static final String jndiCart = "java:global/TiendaOnline-ejb/Cart";
+    private static final String jndiCart = "java:global/Cart";
     ICart cart;
     
     @Override
@@ -33,10 +35,10 @@ public class RemoveProductController extends FrontCommand{
             properties.put("java.naming.factory.initial", "org.jnp.interfaces.NamingContextFactory");
             properties.put("java.naming.factory.url.pkgs", "org.jboss.naming:org.jnp.interfaces");
             properties.put("java.naming.provider.url", "jnp://localhost:1099");
-            Context context = new InitialContext(properties);
+            Context initialContext = new InitialContext(properties);
             
-            catalog = (ICatalog) context.lookup(jndiCatalog);
-            cart = (ICart) context.lookup(jndiCart);
+            catalog = (ICatalog) initialContext.lookup(jndiCatalog);
+            cart = (ICart) initialContext.lookup(jndiCart);
             
             cart.removeProduct(request.getParameter("id"));
             request.setAttribute("cart", cart);
