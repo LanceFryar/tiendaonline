@@ -5,7 +5,6 @@
 package com.tiendaonline.beans;
 
 import com.tiendaonline.libraries.IProduct;
-import javax.ejb.Remote;
 
 /**
  *

@@ -18,7 +18,7 @@ import javax.naming.NamingException;
  * @author josue
  */
 public class MainController extends FrontCommand {
-    private static final String jndICatalog = "java:global/TiendaOnline-ejb/Catalog";
+    private static final String jndICatalog = "java:global/Catalog";
     ICatalog catalog;
     
     @Override

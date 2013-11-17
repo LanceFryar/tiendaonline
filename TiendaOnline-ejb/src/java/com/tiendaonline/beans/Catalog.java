@@ -10,7 +10,7 @@ import com.tiendaonline.loaders.FileLoader;
 import com.tiendaonline.libraries.ILoader;
 import java.util.ArrayList;
 import javax.annotation.PostConstruct;
-import javax.ejb.Remote;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 /**
@@ -18,8 +18,8 @@ import javax.ejb.Stateless;
  * @author Rayco
  */
 
-@Remote(ICatalog.class)
 @Stateless
+@EJB(name="java:global/Catalog", beanInterface=ICatalog.class)
 public class Catalog implements ICatalog{
     private ArrayList<IAlbum> catalog;
 

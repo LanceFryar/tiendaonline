@@ -6,7 +6,6 @@ package com.tiendaonline.beans;
 
 import com.tiendaonline.libraries.IProduct;
 import java.util.ArrayList;
-import javax.ejb.Remote;
 
 /**
  *
