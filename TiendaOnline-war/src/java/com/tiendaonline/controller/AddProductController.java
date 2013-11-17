@@ -15,7 +15,7 @@ import javax.ejb.EJB;
  *
  * @author YO
  */
-public class AddProductCommand extends FrontCommand{
+public class AddProductController extends FrontCommand{
     @EJB
     ICart cart;
     

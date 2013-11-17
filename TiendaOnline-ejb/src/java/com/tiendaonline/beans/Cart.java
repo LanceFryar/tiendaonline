@@ -10,12 +10,13 @@ import com.tiendaonline.libraries.IProduct;
 import com.tiendaonline.libraries.ISaver;
 import com.tiendaonline.loaders.FileSaver;
 import java.util.ArrayList;
+import javax.ejb.Remote;
 
 /**
  *
  * @author josue
  */
-
+@Remote(ICart.class)
 @Stateful
 public class Cart implements ICart{
     ArrayList<IProduct> cart = new ArrayList();

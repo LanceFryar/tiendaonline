@@ -8,7 +8,6 @@ import com.tiendaonline.libraries.IAlbum;
 import com.tiendaonline.libraries.IProduct;
 import com.tiendaonline.loaders.FileLoader;
 import com.tiendaonline.libraries.ILoader;
-import com.tiendaonline.model.Album;
 import java.util.ArrayList;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
@@ -18,8 +17,8 @@ import javax.ejb.Stateless;
  * @author Rayco
  */
 
-@Stateless
 @Remote(ICatalog.class)
+@Stateless
 public class Catalog implements ICatalog{
     private ArrayList<IAlbum> catalog;
 

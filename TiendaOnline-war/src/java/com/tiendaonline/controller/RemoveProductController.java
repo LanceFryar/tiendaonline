@@ -14,7 +14,7 @@ import javax.ejb.EJB;
  *
  * @author YO
  */
-public class RemoveProductCommand extends FrontCommand{
+public class RemoveProductController extends FrontCommand{
     @EJB
     ICart cart;
     

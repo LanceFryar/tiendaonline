@@ -12,7 +12,6 @@ import javax.ejb.Remote;
  * @author josue
  */
 
-@Remote
 public interface ICatalog {
     
     public IProduct getProduct(String id);
