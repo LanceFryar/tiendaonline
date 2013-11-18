@@ -4,8 +4,8 @@
     Author     : josue
 --%>
 
+<%@page import="com.tiendaonline.interfacebeans.ICatalog"%>
 <%@page import="com.tiendaonline.libraries.IAlbum"%>
-<%@page import="com.tiendaonline.libraries.ICatalog"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
