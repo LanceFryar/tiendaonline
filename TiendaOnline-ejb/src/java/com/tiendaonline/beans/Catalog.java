@@ -9,6 +9,7 @@ import com.tiendaonline.libraries.IAlbum;
 import com.tiendaonline.libraries.IProduct;
 import com.tiendaonline.loaders.FileLoader;
 import com.tiendaonline.libraries.ILoader;
+import com.tiendaonline.model.Album;
 import java.util.ArrayList;
 import javax.ejb.Stateless;
 
@@ -30,8 +31,11 @@ public class Catalog implements ICatalog{
     void setCatalog () {
         ILoader fileLoader = new FileLoader();
         int i = 1;
-        while (catalog.add(fileLoader.loadAlbum(""+i))) {
+        Album album = fileLoader.loadAlbum(""+i);
+        while (album != null) {
+            catalog.add(album);
             i++;
+            album = fileLoader.loadAlbum(""+i);
         }
     }
 
