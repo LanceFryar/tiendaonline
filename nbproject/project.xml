@@ -8,11 +8,11 @@
             <web-module-libraries/>
             <web-module-additional-libraries>
                 <library>
-                    <file>${reference.TiendaOnline-war.dist-ear}</file>
+                    <file>${reference.TiendaOnline-ejb.dist-ear}</file>
                     <path-in-war>/</path-in-war>
                 </library>
                 <library>
-                    <file>${reference.TiendaOnline-ejb.dist-ear}</file>
+                    <file>${reference.TiendaOnline-war.dist-ear}</file>
                     <path-in-war>/</path-in-war>
                 </library>
             </web-module-additional-libraries>

@@ -10,7 +10,6 @@ import com.tiendaonline.libraries.IProduct;
 import com.tiendaonline.loaders.FileLoader;
 import com.tiendaonline.libraries.ILoader;
 import java.util.ArrayList;
-import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 
 /**
@@ -18,17 +17,16 @@ import javax.ejb.Stateless;
  * @author Rayco
  */
 
-@Stateless(name = "Catalog", mappedName = "Catalog")
-//@Remote(ICatalog.class)
-//@EJB(name="ejb/Catalog", beanInterface=ICatalog.class, beanName = "Catalog")
+@Stateless(mappedName = "Catalog")
 public class Catalog implements ICatalog{
     private ArrayList<IAlbum> catalog;
 
     public Catalog(){
         catalog = new ArrayList();
+        setCatalog();
     }
     
-    @PostConstruct
+
     void setCatalog () {
         ILoader fileLoader = new FileLoader();
         int i = 1;
@@ -36,11 +34,13 @@ public class Catalog implements ICatalog{
             i++;
         }
     }
-    
+
     @Override
     public IProduct getProduct(String id) {
         return catalog.get(Integer.valueOf(id)-1);
     }
+    
+  
     
     
     

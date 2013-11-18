@@ -11,15 +11,13 @@ import com.tiendaonline.libraries.IProduct;
 import com.tiendaonline.libraries.ISaver;
 import com.tiendaonline.loaders.FileSaver;
 import java.util.ArrayList;
-import javax.ejb.EJB;
 
 /**
  *
  * @author josue
  */
 
-@Stateful
-//@EJB(name="java:global/Cart", beanInterface=ICart.class)
+@Stateful(mappedName = "Cart")
 public class Cart implements ICart{
     ArrayList<IProduct> cart;
 
