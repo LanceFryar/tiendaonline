@@ -26,7 +26,7 @@
             <div class="albumimg">
                 <img src="<%= album.getCover() %>" width="400" height="400">
                 <p> Precio total: <%= formateador.format(album.getPrice()) %> </p>
-                <a href="/Tienda-Online/?command=AddProduct&id=<%= album.getId() %>&from=<%= album.getId() %>">Comprar álbum</a>
+                <a href="/TiendaOnline-war/FrontController?command=AddProduct&id=<%= album.getId() %>&from=<%= album.getId() %>">Comprar álbum</a>
             </div>
             <% int track = 1; %>
             <% ISong song = album.getSong(track); %>
@@ -36,7 +36,7 @@
                 <% if (song.getSeconds()<10){ %> 0 <%}%>
                 <%=song.getSeconds()%>
                 <br />
-                <%= formateador.format(song.getPrice()) %>€ <a href="/Tienda-Online/?command=AddProduct&id=<%= song.getId() %>&from=<%= album.getId() %>">Comprar</a>
+                <%= formateador.format(song.getPrice()) %>€ <a href="/TiendaOnline-war/FrontController?command=AddProduct&id=<%= song.getId() %>&from=<%= album.getId() %>">Comprar</a>
                 <br />
                 <br />
             <%

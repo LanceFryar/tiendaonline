@@ -38,6 +38,8 @@ public class RemoveProductController extends FrontCommand {
             
             cart.removeProduct(request.getParameter("id"));
             request.setAttribute("cart", cart);
+            
+            forward("/carrito.jsp"); 
         } catch (NamingException ex) {
             Logger.getLogger(RemoveProductController.class.getName()).log(Level.SEVERE, null, ex);
         }

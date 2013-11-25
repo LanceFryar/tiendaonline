@@ -72,7 +72,7 @@ public class FileLoader implements ILoader {
                         Integer.valueOf(songProperties[0]),
                         Integer.valueOf(songProperties[4]),
                         Integer.valueOf(songProperties[5]),
-                        id+"."+track));
+                        id+":"+track));
                 track++;
             }
         } catch (FileNotFoundException exception) {

@@ -22,11 +22,11 @@
         </div>
         <% ICart cart = (ICart) request.getAttribute("cart"); %>
         <% float bill = 0; %>
-        <form action="/Tienda-Online/?command=BuyCommand" method="">
+        <form action="/TiendaOnline-war/FrontController?command=BuyCommand" method="">
             <% DecimalFormat formateador = new DecimalFormat("########.##"); %>
             <% for (IProduct product : cart.getCart()) { %>
                 <% bill += product.getPrice(); %>
-                <a href="/Tienda-Online/?command=RemoveProduct&id=<%= product.getId() %>">Eliminar</a>
+                <a href="/TiendaOnline-war/FrontController?command=RemoveProduct&id=<%= product.getId() %>">Eliminar</a>
                 <p> -> <%= product.getTitle() %>, <%= product.getAuthor() %>: <%= product.getPrice() %> €</p>
                 <br />
                 <br />
