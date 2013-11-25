@@ -44,7 +44,7 @@ public abstract class FrontCommand {
             properties.setProperty("org.omg.CORBA:ORBInitialHost", "localhost");
             properties.setProperty("org.omg.CORBA:ORBInitialPort", "3700");
 
-            cart = (ICart)new InitialContext(properties).lookup("java:global/TiendaOnline/TiendaOnline-ejb/Cart!com.tiendaonline.interfacebeans.ICart");
+            cart = (ICart)new InitialContext().lookup("java:global/TiendaOnline/TiendaOnline-ejb/Cart!com.tiendaonline.interfacebeans.ICart");
             session.setAttribute("cart", cart);
         }
         return cart;

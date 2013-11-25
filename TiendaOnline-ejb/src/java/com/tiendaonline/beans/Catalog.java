@@ -20,7 +20,7 @@ import javax.ejb.Stateless;
 
 @Stateless(mappedName = "Catalog")
 public class Catalog implements ICatalog{
-    private ArrayList<IAlbum> catalog;
+    private final ArrayList<IAlbum> catalog;
 
     public Catalog(){
         catalog = new ArrayList();
@@ -28,7 +28,7 @@ public class Catalog implements ICatalog{
     }
     
 
-    void setCatalog () {
+    final void setCatalog () {
         ILoader fileLoader = new FileLoader();
         int i = 1;
         Album album = fileLoader.loadAlbum(""+i);
@@ -41,7 +41,12 @@ public class Catalog implements ICatalog{
 
     @Override
     public IProduct getProduct(String id) {
-        return catalog.get(Integer.valueOf(id)-1);
+        try{
+        IProduct product = catalog.get(Integer.valueOf(id)-1);
+        return product;
+        }catch (IndexOutOfBoundsException e){
+            return null;
+        }
     }
     
   

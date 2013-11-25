@@ -24,9 +24,6 @@ public class MainController extends FrontCommand {
     @Override
     protected void process() {
         try {
-            Properties properties = new Properties();
-//            properties.setProperty("org.omg.CORBA:ORBInitialHost", "localhost");
-//            properties.setProperty("org.omg.CORBA:ORBInitialPort", "3700");
             Context initialContext = new InitialContext();
             
             catalog = (ICatalog) initialContext.lookup(jndiCatalog);

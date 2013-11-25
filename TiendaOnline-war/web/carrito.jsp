@@ -4,9 +4,9 @@
     Author     : Rayco
 --%>
 
+<%@page import="com.tiendaonline.interfacebeans.ICart"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="com.tiendaonline.libraries.IProduct"%>
-<%@page import="com.tiendaonline.libraries.ICart"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

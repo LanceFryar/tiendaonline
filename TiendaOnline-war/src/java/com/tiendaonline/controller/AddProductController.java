@@ -32,7 +32,7 @@ public class AddProductController extends FrontCommand{
             Properties properties = new Properties();
             properties.setProperty("org.omg.CORBA:ORBInitialHost", "localhost");
             properties.setProperty("org.omg.CORBA:ORBInitialPort", "3700");
-            Context initialContext = new InitialContext(properties);
+            Context initialContext = new InitialContext();
             
             catalog = (ICatalog) initialContext.lookup(jndiCatalog);
             cart = getCart(request);

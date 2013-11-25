@@ -21,6 +21,7 @@ public class CartController extends FrontCommand{
         try {
 
             cart = getCart(request);
+            request.setAttribute("cart", cart);
             
             forward("/carrito.jsp");
         } catch (NamingException ex) {

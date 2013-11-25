@@ -4,8 +4,8 @@
     Author     : josue
 --%>
 
+<%@page import="com.tiendaonline.interfacebeans.ICatalog"%>
 <%@page import="com.tiendaonline.libraries.IAlbum"%>
-<%@page import="com.tiendaonline.libraries.ICatalog"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,11 +17,11 @@
     </head>
     <body>
         <div class="header">
-            <img src="/images/header.jpg" height="300" width="100%" />
+            <img src="C:/Users/Josué/Documents/NetBeansProjects/tiendaonline/TiendaOnline-war/web/images/header.jpg" height="300" width="100%" />
             <h1> Catálogo </h1>
         </div>
         <div class="carrito">
-            <a href="/Tienda-Online/?command=Cart"><img src="/images/carrito.png" height="100" width="100"></a>
+            <a href="/TiendaOnline-war/FrontController?command=Cart"><img src="C:/Users/Josué/Documents/NetBeansProjects/tiendaonline/TiendaOnline-war/web/images/carrito.png" height="100" width="100"></a>
             <br />
         </div>
         <div class="content">
@@ -35,13 +35,13 @@
                 <div class="albumd">
             <% } %>
                 <div class="img">
-                    <img src="<%= album.getCover() %>" height="200" width="200">
+                    <img src="C:/Users/Josué/Documents/NetBeansProjects/tiendaonline/TiendaOnline-war/web<%= album.getCover() %>" height="200" width="200">
                 </div>
-                <b>Álbum: </b><a href="/Tienda-Online/?command=Album&id=<%= id %>"><%= album.getTitle() %></a><br />
+                <b>Álbum: </b><a href="/TiendaOnline-war/FrontController?command=Album&id=<%= id %>"><%= album.getTitle() %></a><br />
                 <b>Artista: </b><%= album.getAuthor() %> <br />
                 <% DecimalFormat formateador = new DecimalFormat("########.##"); %>
                 <b>Precio: </b><%= formateador.format(album.getPrice()) %>€<br />
-                <a href="/Tienda-Online/?command=AddProduct&id=<%= id+1 %>&from=0">Comprar</a><br />
+                <a href="/TiendaOnline-war/FrontController?command=AddProduct&id=<%= id+1 %>&from=0">Comprar</a><br />
                 <br />
             </div>
             <% id++;
