@@ -25,6 +25,7 @@ public abstract class FrontCommand {
     protected HttpServletRequest request;
     protected HttpServletResponse response;
     protected ServletContext context;
+    protected HttpSession session;
     
     public void init(HttpServletRequest request, 
             HttpServletResponse response,
@@ -37,13 +38,9 @@ public abstract class FrontCommand {
     protected abstract void process();
     
     protected ICart getCart(HttpServletRequest request) throws NamingException {
-        HttpSession session = request.getSession(true);
+        session = request.getSession(true);
         ICart cart = (ICart) session.getAttribute("cart");
         if (cart==null) {
-            Properties properties = new Properties();
-            properties.setProperty("org.omg.CORBA:ORBInitialHost", "localhost");
-            properties.setProperty("org.omg.CORBA:ORBInitialPort", "3700");
-
             cart = (ICart)new InitialContext().lookup("java:global/TiendaOnline/TiendaOnline-ejb/Cart!com.tiendaonline.interfacebeans.ICart");
             session.setAttribute("cart", cart);
         }
