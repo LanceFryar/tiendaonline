@@ -4,16 +4,15 @@
  * and open the template in the editor.
  */
 
-package com.tiendaonline.libraries;
+package com.tiendaonline.mappers;
 
-import com.tiendaonline.interfacebeans.ICart;
 import javax.ejb.Remote;
 
 /**
  *
- * @author YO
+ * @author Josué
  */
 @Remote
-public interface ISaver {
-    public void saveCart(ICart cart);
+public interface UserProductMapperRemote {
+    
 }
