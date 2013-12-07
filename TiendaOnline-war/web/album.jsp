@@ -4,6 +4,7 @@
     Author     : josue
 --%>
 
+<%@page import="com.tiendaonline.model.User"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="com.tiendaonline.libraries.ISong"%>
 <%@page import="com.tiendaonline.libraries.IAlbum"%>
@@ -21,6 +22,17 @@
         <div class="header" style="text-align: center">
             <img src="images/header.jpg" width="100%" height="300" alt="header"/>
             <h1> <%= album.getTitle() %> - <%= album.getAuthor() %></h1>
+        </div>
+        <% User user = (User) request.getAttribute("user");%>
+        <div class="sessionMenu">
+            <% if (user==null) { %>
+            <form action="/TiendaOnline-war/FrontController?command=Login&from=1&albumID=<% album.getId(); %>">
+                <p>Nombre: <input type="text" name="user"></p><p>Contraseña: <input type="password" name="password"></p>
+                <input type="submit" name="Login">
+            </form>
+            <% }else { %>
+            <p><%= user.getName() %> <a href="/TiendaOnline-war/FrontController?command=Logout">Logout</a></p>
+            <% } %>
         </div>
         <div class="carrito">
             <a href="/TiendaOnline-war/FrontController?command=Cart"><img src="images/carrito.png" height="100" width="100"></a>
@@ -48,6 +60,5 @@
                 song = album.getSong(track);
             }%>
         </div>
-        
     </body>
 </html>

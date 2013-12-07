@@ -4,6 +4,7 @@
     Author     : josue
 --%>
 
+<%@page import="com.tiendaonline.model.User"%>
 <%@page import="com.tiendaonline.interfacebeans.ICatalog"%>
 <%@page import="com.tiendaonline.libraries.IAlbum"%>
 <%@page import="java.text.DecimalFormat"%>
@@ -16,6 +17,18 @@
         <title>Tienda Online. Catálogo</title>
     </head>
     <body>
+        <% User user = (User) request.getAttribute("user");%>
+        <% ICatalog catalog = (ICatalog) request.getAttribute("catalog");%>
+        <div class="sessionMenu">
+            <% if (user==null) { %>
+            <form action="/TiendaOnline-war/FrontController?command=Login&from=0&page=<%= catalog.getPosition(); %>">
+                <p>Nombre: <input type="text" name="user"></p><p>Contraseña: <input type="password" name="password"></p>
+                <input type="submit" name="Login">
+            </form>
+            <% }else { %>
+            <p><%= user.getName() %> <a href="/TiendaOnline-war/FrontController?command=Logout">Logout</a></p>
+            <% } %>
+        </div>
         <div class="header">
             <img src="images/header.jpg" height="300" width="100%" />
             <h1> Catálogo </h1>
@@ -25,7 +38,6 @@
             <br />
         </div>
         <div class="content">
-            <% ICatalog catalog = (ICatalog) request.getAttribute("catalog");%>
             <% int id=1; %>
             <% IAlbum album = (IAlbum)catalog.getProduct(String.valueOf(id)); %>
             <% while (album!=null){ %>
@@ -47,6 +59,25 @@
             <% id++;
             album = (IAlbum)catalog.getProduct(String.valueOf(id));
             }%>
+        </div>
+        <div class="pages">
+            <% if (catalog.getPosition()-1 != 0) { %>
+            <a href="/TiendaOnline-war/FrontController?command=Main&page=<%= catalog.getPosition()-1; %>">Prev</a>
+            <% }%>
+            <p><% catalog.getPosition(); %></p>
+            <% if (catalog.getPosition()+1 < Número máximo de páginas) { %>
+            <a href="/TiendaOnline-war/FrontController?command=Main&page=<%= catalog.getPosition()+1; %>">Next</a>
+            <% }%>
+            <form action="/TiendaOnline-war/FrontController?command=Main">
+                <select name="page">
+                    <option value="0" selected>Ir a la página deseada</option>
+                    <% int page = 1; %>
+                    <% while (page < Número máximo de páginas) { %>
+                    <option value="<%= page %>"><%= page %></option>
+                    <% } %>
+                </select>
+                <input type="submit" value="Ir">
+            </form>
         </div>
     </body>
 </html>
