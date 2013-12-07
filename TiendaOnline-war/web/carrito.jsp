@@ -4,6 +4,7 @@
     Author     : Rayco
 --%>
 
+<%@page import="com.tiendaonline.model.User"%>
 <%@page import="com.tiendaonline.interfacebeans.ICart"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="com.tiendaonline.libraries.IProduct"%>
@@ -19,6 +20,10 @@
         <div class="header">
             <img src="images/header.jpg" width="100%" height="300" alt="header">
             <h1>Carrito</h1>
+        </div>
+        <% User user = (User) request.getAttribute("user");%>
+        <div class="sessionMenu">
+            <p><%= user.getName() %> <a href="/TiendaOnline-war/FrontController?command=Logout">Logout</a></p>
         </div>
         <% ICart cart = (ICart) request.getAttribute("cart"); %>
         <% float bill = 0; %>
