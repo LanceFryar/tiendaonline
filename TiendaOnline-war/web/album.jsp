@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="/estilo.css"> 
+        <link rel="stylesheet" type="text/css" href="estilo.css"> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Tienda Online</title>
     </head>
@@ -19,8 +19,12 @@
         <% IAlbum album = (IAlbum) request.getAttribute("album"); %>
         <% DecimalFormat formateador = new DecimalFormat("########.##"); %>
         <div class="header" style="text-align: center">
-            <img src="/images/header.jpg" width="100%" height="300" alt="header"/>
+            <img src="images/header.jpg" width="100%" height="300" alt="header"/>
             <h1> <%= album.getTitle() %> - <%= album.getAuthor() %></h1>
+        </div>
+        <div class="carrito">
+            <a href="/TiendaOnline-war/FrontController?command=Cart"><img src="images/carrito.png" height="100" width="100"></a>
+            <br />
         </div>
         <div class="">
             <div class="albumimg">

@@ -11,17 +11,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="/estilo.css"> 
+        <link rel="stylesheet" type="text/css" href="estilo.css"> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Tienda Online. Catálogo</title>
     </head>
     <body>
         <div class="header">
-            <img src="C:/Users/Josué/Documents/NetBeansProjects/tiendaonline/TiendaOnline-war/web/images/header.jpg" height="300" width="100%" />
+            <img src="images/header.jpg" height="300" width="100%" />
             <h1> Catálogo </h1>
         </div>
         <div class="carrito">
-            <a href="/TiendaOnline-war/FrontController?command=Cart"><img src="C:/Users/Josué/Documents/NetBeansProjects/tiendaonline/TiendaOnline-war/web/images/carrito.png" height="100" width="100"></a>
+            <a href="/TiendaOnline-war/FrontController?command=Cart"><img src="images/carrito.png" height="100" width="100"></a>
             <br />
         </div>
         <div class="content">
@@ -35,7 +35,7 @@
                 <div class="albumd">
             <% } %>
                 <div class="img">
-                    <img src="C:/Users/Josué/Documents/NetBeansProjects/tiendaonline/TiendaOnline-war/web<%= album.getCover() %>" height="200" width="200">
+                    <img src="<%= album.getCover() %>" height="200" width="200">
                 </div>
                 <b>Álbum: </b><a href="/TiendaOnline-war/FrontController?command=Album&id=<%= id %>"><%= album.getTitle() %></a><br />
                 <b>Artista: </b><%= album.getAuthor() %> <br />

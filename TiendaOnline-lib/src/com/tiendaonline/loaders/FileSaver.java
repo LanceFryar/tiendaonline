@@ -25,7 +25,7 @@ public class FileSaver implements ISaver{
         float bill = 0;
         try {
             BufferedWriter writer;
-            writer = new BufferedWriter(new FileWriter("/"+new SimpleDateFormat("MM/dd/yyyy").format(new Date(System.currentTimeMillis()))));
+            writer = new BufferedWriter(new FileWriter(System.currentTimeMillis() + "Compra"));
             for (IProduct product : cart.getCart()) {
                 bill += product.getPrice();
                 writer.write(product.getTitle()+" - "+product.getAuthor()+": "+product.getPrice());

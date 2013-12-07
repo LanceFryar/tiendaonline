@@ -7,11 +7,8 @@
 package com.tiendaonline.controller;
 
 import com.tiendaonline.interfacebeans.ICart;
-import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 /**
@@ -30,7 +27,7 @@ public class BuyController extends FrontCommand{
             cart.saveProducts();
             cart.empty();
             request.setAttribute("cart", cart);
-            forward("/cart.jsp");
+            forward("/carrito.jsp");
         } catch (NamingException ex) {
             Logger.getLogger(BuyController.class.getName()).log(Level.SEVERE, null, ex);
         }

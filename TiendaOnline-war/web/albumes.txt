@@ -1,5 +1,5 @@
-1:/images/alone.jpg:We Are Not Alone:Breaking Benjamin
-2:/images/phobia.jpg:Phobia:Breaking Benjamin
-3:/images/cracks.jpg:Cracks:Mala Juntera
-4:/images/things.jpg:My Favorite Things:Dave Brubeck
-5:/images/suburbia.jpg:Un Día En Suburbia:Nach
+1:images/alone.jpg:We Are Not Alone:Breaking Benjamin
+2:images/phobia.jpg:Phobia:Breaking Benjamin
+3:images/cracks.jpg:Cracks:Mala Juntera
+4:images/things.jpg:My Favorite Things:Dave Brubeck
+5:images/suburbia.jpg:Un Día En Suburbia:Nach
