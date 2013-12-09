@@ -4,15 +4,12 @@
  * and open the template in the editor.
  */
 
-package com.tiendaonline.mappers;
-
-import javax.ejb.Remote;
+package com.tiendaonline.model;
 
 /**
  *
  * @author Josué
  */
-@Remote
-public interface UserProductMapperRemote {
+public class DomainObject {
     
 }

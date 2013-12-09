@@ -1,13 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.tiendaonline.mappers;
 
+import com.tiendaonline.model.DomainObject;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -23,30 +22,38 @@ public abstract class AbstractMapper {
     abstract protected String findStatement();
 
     protected DomainObject abstractFind(Long id) {
-        DomainObject result = loadedMap.get(id);
+        DomainObject result = (DomainObject) loadedMap.get(id);
+
         if (result != null) {
             return result;
         }
-        findResult = DB.prepare(findStatement());
-        findResult.setLong(1, id);
-        ResultSet rs = findResult.executeQuery();
+
         try {
-            rs.next();
-        } catch (SQLException ex) {
-            Logger.getLogger(AbstractMapper.class.getName()).log(Level.SEVERE, null, ex);
+            Connection DB = DriverManager.getConnection("jdbc:derby:tiendaonline-db",
+                    "tiendaonline",
+                    "tiendaonline");
+            PreparedStatement findStatement = null;
+            findStatement = DB.prepareCall(findStatement());
+            findStatement.setLong(1, id.longValue());
+            ResultSet resultSet = findStatement.executeQuery();
+            resultSet.next();
+            result = load(resultSet);
+            
+        } catch (SQLException e) {
+            // Ya haremos algo
         }
-        result = load(rs);
         return result;
+        
     }
     
     protected DomainObject load(ResultSet r) {
-        Long id;
+        Long id = null;
         try {
             id = new Long(r.getLong(1));
         } catch (SQLException ex) {
             Logger.getLogger(AbstractMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
-        DomainObject result = loadedMap.get(id);
+        DomainObject result = (DomainObject) loadedMap.get(id);
         if (result != null) {
             return result;
         }
