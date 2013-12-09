@@ -21,7 +21,7 @@
         <% ICatalog catalog = (ICatalog) request.getAttribute("catalog");%>
         <div class="sessionMenu">
             <% if (user==null) { %>
-            <form action="/TiendaOnline-war/FrontController?command=Login&from=0&page=<%= catalog.getPosition(); %>">
+            <form action="/TiendaOnline-war/FrontController?command=Login&from=0&page=<%= catalog.getPosition() %>">
                 <p>Nombre: <input type="text" name="user"></p><p>Contraseña: <input type="password" name="password"></p>
                 <input type="submit" name="Login">
             </form>
@@ -38,9 +38,10 @@
             <br />
         </div>
         <div class="content">
-            <% int id=1; %>
+            <% int id=catalog.getPosition(); %>
+            <% int numberOfAlbums=catalog.getNumberOfProducts(); %>
             <% IAlbum album = (IAlbum)catalog.getProduct(String.valueOf(id)); %>
-            <% while (album!=null){ %>
+            <% while ((catalog.getNumberOfProducts() > 0)||(album!=null)){ %>
             <% if (id%2==0) { %>
                 <div class="albumi">
             <% }else { %>
@@ -57,24 +58,26 @@
                 <br />
             </div>
             <% id++;
+            numberOfAlbums--;
             album = (IAlbum)catalog.getProduct(String.valueOf(id));
             }%>
         </div>
         <div class="pages">
-            <% if (catalog.getPosition()-1 != 0) { %>
-            <a href="/TiendaOnline-war/FrontController?command=Main&page=<%= catalog.getPosition()-1; %>">Prev</a>
+            <% if ((catalog.getPosition()-catalog.getNumberOfProducts()) > 0) { %>
+            <a href="/TiendaOnline-war/FrontController?command=Main&page=<%= catalog.getPosition()-catalog.getNumberOfProducts() %>">Prev</a>
             <% }%>
-            <p><% catalog.getPosition(); %></p>
-            <% if (catalog.getPosition()+1 < Número máximo de páginas) { %>
-            <a href="/TiendaOnline-war/FrontController?command=Main&page=<%= catalog.getPosition()+1; %>">Next</a>
+            <p><%= catalog.getPosition()/catalog.getNumberOfProducts() %></p>
+            <% if (catalog.getPosition()+catalog.getNumberOfProducts() < catalog.getProductCount()) { %>
+            <a href="/TiendaOnline-war/FrontController?command=Main&page=<%= catalog.getPosition()+1 %>">Next</a>
             <% }%>
             <form action="/TiendaOnline-war/FrontController?command=Main">
                 <select name="page">
                     <option value="0" selected>Ir a la página deseada</option>
-                    <% int page = 1; %>
-                    <% while (page < Número máximo de páginas) { %>
+                    <% int pageNumber = 1; %>
+                    <% while (((pageNumber-1)*catalog.getNumberOfProducts())+1 < catalog.getProductCount()) { %>
                     <option value="<%= page %>"><%= page %></option>
-                    <% } %>
+                    <% pageNumber++;
+                        } %>
                 </select>
                 <input type="submit" value="Ir">
             </form>

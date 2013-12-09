@@ -18,6 +18,7 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class CatalogMapper extends AbstractMapper implements ICatalog {
+    private int position, numberOfProducts, productCount;
 
     @Override
     public IProduct getProduct(String id) {
@@ -34,4 +35,18 @@ public class CatalogMapper extends AbstractMapper implements ICatalog {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public int getPosition() {
+        return position;
+    }
+
+    @Override
+    public int getNumberOfProducts() {
+        return numberOfProducts;
+    }
+
+    @Override
+    public int getProductCount() {
+        return productCount;
+    }
 }

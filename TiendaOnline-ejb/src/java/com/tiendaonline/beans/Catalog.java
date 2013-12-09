@@ -48,6 +48,16 @@ public class Catalog implements ICatalog{
             return null;
         }
     }
+
+    @Override
+    public int getPosition() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getNumberOfProducts() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
   
     
